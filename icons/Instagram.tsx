@@ -1,7 +1,12 @@
-"use client";
+import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const Instagram = () => {
+const Instagram = ({
+    size = 24,
+    color = "currentColor",
+    strokeWidth = 2,
+    className = ""
+}: AnimatedIconProps) => {
     const [scope, animate] = useAnimate();
 
     const hoverAnimation = async () => {
@@ -31,16 +36,16 @@ const Instagram = () => {
         <motion.div
             ref={scope}
             onHoverStart={hoverAnimation}
-            className="inline-flex cursor-pointer"
+            className={`inline-flex cursor-pointer ${className}`}
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width={size}
+                height={size}
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+                stroke={color}
+                strokeWidth={strokeWidth}
                 strokeLinecap="round"
                 strokeLinejoin="round"
             >

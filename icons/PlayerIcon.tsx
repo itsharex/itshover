@@ -1,7 +1,12 @@
-"use client";
+import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const PlayerIcon = () => {
+const PlayerIcon = ({
+    size = 24,
+    color = "currentColor",
+    strokeWidth = 2,
+    className = ""
+}: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();
 
   const playAnimation = async () => {
@@ -23,12 +28,12 @@ const PlayerIcon = () => {
       ref={scope}
       onTap={playAnimation}
       onHoverStart={playAnimation}
-      className="inline-flex cursor-pointer"
+      className={`inline-flex cursor-pointer ${className}`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         viewBox="0 0 24 24"
         fill="currentColor"
         className="play-icon"

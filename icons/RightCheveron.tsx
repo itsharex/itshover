@@ -1,7 +1,12 @@
-"use client";
+import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const RightChevron = () => {
+const RightChevron = ({
+    size = 24,
+    color = "currentColor",
+    strokeWidth = 2,
+    className = ""
+}: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
@@ -18,17 +23,17 @@ const RightChevron = () => {
   return (
     <motion.div
       ref={scope}
-      className="flex w-8 items-center justify-center"
+      className={`flex w-8 items-center justify-center ${className}`}
       onHoverStart={hoverAnimation}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         viewBox="0 0 24 24"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
+        stroke={color}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
         className="chevron cursor-pointer"

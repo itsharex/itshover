@@ -1,16 +1,20 @@
-"use client";
+import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-type TrashIconProps = {
+interface TrashIconProps extends AnimatedIconProps {
   shakeOnClick?: boolean;
   dangerHover?: boolean;
   keepOpenOnDelete?: boolean;
-};
+}
 
 const TrashIcon = ({
   shakeOnClick = false,
   dangerHover = false,
   keepOpenOnDelete = false,
+  size = 24,
+  color = "currentColor",
+  strokeWidth = 2,
+  className = "",
 }: TrashIconProps) => {
   const [scope, animate] = useAnimate();
 
@@ -89,7 +93,7 @@ const TrashIcon = ({
   return (
     <motion.div
       ref={scope}
-      className="inline-flex cursor-pointer"
+      className={`inline-flex cursor-pointer ${className}`}
       onHoverStart={async () => {
         await hoverAnimation();
         await dangerHoverAnimation();
@@ -99,12 +103,12 @@ const TrashIcon = ({
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         viewBox="0 0 24 24"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
+        stroke={color}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
         className="trash-icon"

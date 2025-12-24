@@ -1,7 +1,12 @@
-"use client";
+import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const RefreshIcon = () => {
+const RefreshIcon = ({
+    size = 24,
+    color = "currentColor",
+    strokeWidth = 2,
+    className = ""
+}: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();
   const handleAnimate = async () => {
     await animate("svg", { rotate: 180 }, { duration: 0.4, ease: "easeInOut" });
@@ -16,11 +21,11 @@ const RefreshIcon = () => {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         viewBox="0 0 24 24"
         fill="none"
-        stroke="currentColor"
+        stroke={color}
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"

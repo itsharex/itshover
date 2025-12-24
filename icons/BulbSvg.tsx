@@ -1,7 +1,12 @@
-"use client";
+import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const BulbSvg = () => {
+const BulbSvg = ({
+    size = 24,
+    color = "currentColor",
+    strokeWidth = 2,
+    className = ""
+}: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
@@ -36,11 +41,11 @@ const BulbSvg = () => {
     <motion.div ref={scope} onHoverStart={hoverAnimation}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         viewBox="0 0 24 24"
         fill="currentColor"
-        className="bulb-icon cursor-pointer"
+        className={`bulb-icon cursor-pointer ${className}`}
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         {/* Left ray */}

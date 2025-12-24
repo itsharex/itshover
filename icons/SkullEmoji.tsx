@@ -1,7 +1,12 @@
-"use client";
+import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "framer-motion";
 
-const SkullEmoji = () => {
+const SkullEmoji = ({
+    size = 24,
+    color = "currentColor",
+    strokeWidth = 2,
+    className = ""
+}: AnimatedIconProps) => {
     const [scope, animate] = useAnimate();
 
     const hoverAnimation = async () => {
@@ -45,18 +50,18 @@ const SkullEmoji = () => {
         <motion.div
             ref={scope}
             onHoverStart={hoverAnimation}
-            className="inline-flex cursor-pointer"
+            className={`inline-flex cursor-pointer ${className}`}
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
-                width="24"
-                height="24"
+                width={size}
+                height={size}
                 viewBox="0 0 32 32"
                 fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+                stroke={color}
+                strokeWidth={strokeWidth}
                 strokeMiterlimit="10"
                 strokeLinecap="square"
             >

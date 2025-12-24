@@ -1,8 +1,12 @@
-"use client";
-
+import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const QRCodeSVG = () => {
+const QRCodeSVG = ({
+    size = 24,
+    color = "currentColor",
+    strokeWidth = 2,
+    className = ""
+}: AnimatedIconProps) => {
     const [scope, animate] = useAnimate();
 
     const hoverAnimation = async () => {
@@ -59,10 +63,10 @@ const QRCodeSVG = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
-                width="24"
-                height="24"
+                width={size}
+                height={size}
                 viewBox="0 0 32 32"
-                className="qr-code"
+                className={`qr-code ${className}`}
                 style={{ overflow: "visible" }}
             >
                 {/* Scan line */}
@@ -84,8 +88,8 @@ const QRCodeSVG = () => {
                     y="3"
                     width="9"
                     height="9"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     fill="none"
                     initial={{ pathLength: 1 }}
                 />
@@ -97,8 +101,8 @@ const QRCodeSVG = () => {
                     y="20"
                     width="9"
                     height="9"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     fill="none"
                     initial={{ pathLength: 1 }}
                 />
@@ -110,8 +114,8 @@ const QRCodeSVG = () => {
                     y="3"
                     width="9"
                     height="9"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     fill="none"
                     initial={{ pathLength: 1 }}
                 />
@@ -123,8 +127,8 @@ const QRCodeSVG = () => {
                     y="20"
                     width="2"
                     height="2"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     fill="none"
                     style={{ transformOrigin: "center" }}
                 />
@@ -135,8 +139,8 @@ const QRCodeSVG = () => {
                     y="27"
                     width="2"
                     height="2"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     fill="none"
                     style={{ transformOrigin: "center" }}
                 />
@@ -144,8 +148,8 @@ const QRCodeSVG = () => {
                 <motion.path
                     className="inner-element"
                     d="M3 16H7"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     strokeLinecap="square"
                     fill="none"
                     style={{ transformOrigin: "center" }}
@@ -154,8 +158,8 @@ const QRCodeSVG = () => {
                 <motion.path
                     className="inner-element"
                     d="M13 16H18M22 16V23H29M22 16H26M22 16H18M18 16V20H16"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     strokeLinecap="square"
                     fill="none"
                     style={{ transformOrigin: "center" }}
@@ -164,8 +168,8 @@ const QRCodeSVG = () => {
                 <motion.path
                     className="inner-element"
                     d="M16 7V10"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     strokeLinecap="square"
                     fill="none"
                     style={{ transformOrigin: "center" }}
@@ -174,8 +178,8 @@ const QRCodeSVG = () => {
                 <motion.path
                     className="inner-element"
                     d="M16 25V29H23V27"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     strokeLinecap="square"
                     fill="none"
                     style={{ transformOrigin: "center" }}
@@ -184,8 +188,8 @@ const QRCodeSVG = () => {
                 <motion.path
                     className="inner-element"
                     d="M29.01 29H29"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     strokeLinecap="square"
                     fill="none"
                     style={{ transformOrigin: "center" }}
@@ -198,8 +202,8 @@ const QRCodeSVG = () => {
                     y="7"
                     width="1"
                     height="1"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     fill="none"
                     style={{ transformOrigin: "24.5px 7.5px" }}
                 />
@@ -210,8 +214,8 @@ const QRCodeSVG = () => {
                     y="7"
                     width="1"
                     height="1"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     fill="none"
                     style={{ transformOrigin: "7.5px 7.5px" }}
                 />
@@ -222,8 +226,8 @@ const QRCodeSVG = () => {
                     y="24"
                     width="1"
                     height="1"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    stroke={color}
+                    strokeWidth={strokeWidth}
                     fill="none"
                     style={{ transformOrigin: "7.5px 24.5px" }}
                 />
