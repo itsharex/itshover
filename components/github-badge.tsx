@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useAnimate } from "motion/react";
 import { Github } from "lucide-react";
 import { useState } from "react";
+import GithubIcon from "@/icons/github-icon";
 
 const GithubBadge = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -33,7 +34,7 @@ const GithubBadge = () => {
         <div
           className={`bg-background relative z-10 flex items-center justify-center gap-2 rounded-full p-1 px-2 shadow-[0px_1px_2px_rgba(0,0,0,0.2)] ${isHovered ? "ml-[110px]" : "ml-0"} transition-all duration-300`}
         >
-          <Github className="text-2xl" />
+          <GithubIcon size={18} />
           <span className="text-foreground font-inter text-xs font-semibold uppercase">
             Closed Source
           </span>

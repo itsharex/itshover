@@ -19,7 +19,7 @@ const BookmarkIcon = ({
       {
         duration: 0.18,
         ease: "easeOut",
-      }
+      },
     );
   };
 
@@ -33,7 +33,7 @@ const BookmarkIcon = ({
       {
         duration: 0.18,
         ease: "easeInOut",
-      }
+      },
     );
   };
 

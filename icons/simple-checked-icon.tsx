@@ -5,7 +5,7 @@ import React from "react";
 const SimpleCheckedIcon = ({
   size = 24,
   color = "currentColor",
-  strokeWidth = 1,
+  strokeWidth = 2,
   className = "",
 }: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();

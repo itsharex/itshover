@@ -21,7 +21,7 @@ const TextIcon = ({
       {
         duration: 0.3,
         ease: "easeInOut",
-      }
+      },
     );
 
     // A goes up
@@ -34,7 +34,7 @@ const TextIcon = ({
       {
         duration: 0.3,
         ease: "easeInOut",
-      }
+      },
     );
   };
 
@@ -48,7 +48,7 @@ const TextIcon = ({
       {
         duration: 0.3,
         ease: "easeInOut",
-      }
+      },
     );
   };
 
@@ -67,10 +67,7 @@ const TextIcon = ({
         fill="currentColor"
       >
         {/* Vertical line */}
-        <motion.path
-          className="text-line"
-          d="M35.5 3.5V43H32.5V3.5H35.5Z"
-        />
+        <motion.path className="text-line" d="M35.5 3.5V43H32.5V3.5H35.5Z" />
 
         {/* Z letter */}
         <motion.path
@@ -85,10 +82,7 @@ const TextIcon = ({
         />
 
         {/* A crossbar */}
-        <motion.path
-          className="text-a"
-          d="M19.5 18H8.5V15H19.5V18Z"
-        />
+        <motion.path className="text-a" d="M19.5 18H8.5V15H19.5V18Z" />
 
         {/* Arrow down */}
         <motion.path

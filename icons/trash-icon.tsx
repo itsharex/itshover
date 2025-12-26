@@ -13,7 +13,7 @@ const TrashIcon = ({
   keepOpenOnDelete = false,
   size = 24,
   color = "currentColor",
-  strokeWidth = 1,
+  strokeWidth = 2,
   className = "",
 }: TrashIconProps) => {
   const [scope, animate] = useAnimate();
@@ -99,8 +99,8 @@ const TrashIcon = ({
         await dangerHoverAnimation();
       }}
       onHoverEnd={() => {
-        resetColor()
-        closeLid()
+        resetColor();
+        closeLid();
       }}
       onTap={clickAnimation}
     >

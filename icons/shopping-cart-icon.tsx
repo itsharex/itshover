@@ -19,7 +19,7 @@ const ShoppingCartIcon = ({
       {
         duration: 0.6,
         ease: "easeInOut",
-      }
+      },
     );
 
     // Wheels roll forward → back
@@ -32,7 +32,7 @@ const ShoppingCartIcon = ({
       {
         duration: 0.6,
         ease: "easeInOut",
-      }
+      },
     );
 
     animate(
@@ -44,7 +44,7 @@ const ShoppingCartIcon = ({
       {
         duration: 0.6,
         ease: "easeInOut",
-      }
+      },
     );
 
     // Items bounce slightly
@@ -56,7 +56,7 @@ const ShoppingCartIcon = ({
       {
         duration: 0.4,
         ease: "easeInOut",
-      }
+      },
     );
   };
 

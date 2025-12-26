@@ -5,100 +5,104 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
+import CopyIcon from "@/icons/copy-icon";
+import SimpleCheckedIcon from "@/icons/simple-checked-icon";
 
 interface CodeBlockProps {
-    command: string;
-    className?: string;
+  command: string;
+  className?: string;
 }
 
 export const CodeBlock = ({ command, className }: CodeBlockProps) => {
-    const [copied, setCopied] = React.useState(false);
-    const [activeTab, setActiveTab] = React.useState("npm");
+  const [copied, setCopied] = React.useState(false);
+  const [activeTab, setActiveTab] = React.useState("npm");
 
-    const copyToClipboard = async (text: string) => {
-        await navigator.clipboard.writeText(text);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
+  const copyToClipboard = async (text: string) => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-    const getCommand = (pm: string) => {
-        switch (pm) {
-            case "pnpm":
-                return `pnpm add ${command}`;
-            case "yarn":
-                return `yarn add ${command}`;
-            case "bun":
-                return `bun add ${command}`;
-            default:
-                return `npm install ${command}`;
-        }
-    };
+  const getCommand = (pm: string) => {
+    switch (pm) {
+      case "pnpm":
+        return `pnpm add ${command}`;
+      case "yarn":
+        return `yarn add ${command}`;
+      case "bun":
+        return `bun add ${command}`;
+      default:
+        return `npm install ${command}`;
+    }
+  };
 
-    const packageManagers = ["npm", "pnpm", "yarn", "bun"];
+  const packageManagers = ["npm", "pnpm", "yarn", "bun"];
 
-    return (
-        <div
-            className={cn(
-                "relative w-full max-w-2xl overflow-hidden rounded-xl border bg-background shadow-2xl text-foreground",
-                className,
-            )}
-        >
-            <div className="from-primary/10 absolute inset-0 bg-linear-to-tr via-transparent to-transparent opacity-50" />
+  return (
+    <div
+      className={cn(
+        "bg-background text-foreground relative w-full max-w-2xl overflow-hidden rounded-xl border shadow-2xl",
+        className,
+      )}
+    >
+      <div className="from-primary/10 absolute inset-0 bg-linear-to-tr via-transparent to-transparent opacity-50" />
 
-            <Tabs
-                defaultValue="npm"
-                value={activeTab}
-                onValueChange={setActiveTab}
-                className="relative"
-            >
-                <div className="flex items-center justify-between border-b border-foreground/10 bg-background/5 px-4 py-2 backdrop-blur-sm">
-                    <TabsList className="h-8 bg-transparent p-0">
-                        {packageManagers.map((pm) => (
-                            <TabsTrigger
-                                key={pm}
-                                value={pm}
-                                className="relative h-8 rounded-md px-3 text-xs font-medium text-foreground transition-colors hover:text-foreground/70 data-[state=active]:bg-background/10 data-[state=active]:text-accent-foreground"
-                            >
-                                {pm}
-                            </TabsTrigger>
-                        ))}
-                    </TabsList>
-                    <div className="flex items-center gap-2">
-                        <div className="flex gap-1.5">
-                            <div className="h-2.5 w-2.5 rounded-full bg-red-500/20" />
-                            <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/20" />
-                            <div className="h-2.5 w-2.5 rounded-full bg-green-500/20" />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="group relative">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeTab}
-                            initial={{ opacity: 0, y: 5 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -5 }}
-                            transition={{ duration: 0.2 }}
-                            className="p-4 text-sm text-foreground"
-                        >
-                            <span className="text-primary mr-2">$</span>
-                            {getCommand(activeTab)}
-                        </motion.div>
-                    </AnimatePresence>
-
-                    <button
-                        onClick={() => copyToClipboard(getCommand(activeTab))}
-                        className="absolute top-1/2 right-4 -translate-y-1/2 rounded-md p-2 text-foreground opacity-0 transition-all group-hover:opacity-100 hover:bg-foreground/10 hover:text-foreground focus:opacity-100"
-                    >
-                        {copied ? (
-                            <Check className="h-4 w-4 text-green-500" />
-                        ) : (
-                            <Copy className="h-4 w-4" />
-                        )}
-                    </button>
-                </div>
-            </Tabs>
+      <Tabs
+        defaultValue="npm"
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="relative"
+      >
+        <div className="border-foreground/10 bg-background/5 flex items-center justify-between border-b px-4 py-2 backdrop-blur-sm">
+          <TabsList className="h-8 bg-transparent p-0">
+            {packageManagers.map((pm) => (
+              <TabsTrigger
+                key={pm}
+                value={pm}
+                className="text-foreground hover:text-foreground/70 data-[state=active]:bg-background/10 data-[state=active]:text-accent-foreground relative h-8 rounded-md px-3 text-xs font-medium transition-colors"
+              >
+                {pm}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          <div className="flex items-center gap-2">
+            <div className="flex gap-1.5">
+              <div className="h-2.5 w-2.5 rounded-full bg-red-500/20" />
+              <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/20" />
+              <div className="h-2.5 w-2.5 rounded-full bg-green-500/20" />
+            </div>
+          </div>
         </div>
-    );
+
+        <div className="group relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="text-foreground p-4 text-sm"
+            >
+              <span className="text-primary mr-2">$</span>
+              {getCommand(activeTab)}
+            </motion.div>
+          </AnimatePresence>
+
+          <button
+            onClick={() => copyToClipboard(getCommand(activeTab))}
+            className="text-foreground hover:bg-foreground/10 hover:text-foreground absolute top-1/2 right-4 flex -translate-y-1/2 items-center rounded-md p-2 opacity-0 transition-all group-hover:opacity-100 focus:opacity-100"
+          >
+            {copied ? (
+              // <Check className="h-4 w-4 text-green-500" />
+              <SimpleCheckedIcon className="text-green-500" size={18} />
+            ) : (
+              // <Copy className="h-4 w-4" />
+              <CopyIcon size={18} />
+            )}
+          </button>
+        </div>
+      </Tabs>
+    </div>
+  );
 };

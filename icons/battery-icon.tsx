@@ -5,7 +5,7 @@ import { motion, useAnimate } from "motion/react";
 const BatteryIcon = ({
   size = 24,
   color = "currentColor",
-  strokeWidth = 2,
+  strokeWidth = 2.5,
   className = "",
 }: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();

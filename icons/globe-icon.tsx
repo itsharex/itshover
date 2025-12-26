@@ -14,7 +14,7 @@ const GlobeIcon = ({
     animate(
       ".globe-circle",
       { rotate: 360 },
-      { duration: 2, ease: "linear", repeat: Infinity }
+      { duration: 2, ease: "linear", repeat: Infinity },
     );
   };
 
@@ -40,7 +40,10 @@ const GlobeIcon = ({
         strokeMiterlimit="10"
         strokeLinecap="square"
       >
-        <motion.g className="globe-circle" style={{ transformOrigin: "23px 19px" }}>
+        <motion.g
+          className="globe-circle"
+          style={{ transformOrigin: "23px 19px" }}
+        >
           {/* Branch 1 -> Continent 1 */}
           <motion.path
             className="globe-continent-1"

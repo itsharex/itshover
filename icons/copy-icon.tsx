@@ -1,0 +1,56 @@
+import { AnimatedIconProps } from "./types";
+import { motion, useAnimate } from "motion/react";
+
+const CopyIcon = ({
+  size = 24,
+  color = "currentColor",
+  strokeWidth = 2,
+  className = "",
+}: AnimatedIconProps) => {
+  const [scope, animate] = useAnimate();
+
+  const hoverAnimation = async () => {
+    // Lift and shift animation for the front copy
+    await animate(
+      ".front-copy",
+      { x: [0, 2, 0], y: [0, 2, 0] },
+      { duration: 0.3, ease: "easeInOut" },
+    );
+  };
+
+  const hoverEndAnimation = () => {
+    animate(".front-copy", { x: 0, y: 0 }, { duration: 0.2, ease: "easeOut" });
+  };
+
+  return (
+    <motion.div
+      ref={scope}
+      onHoverStart={hoverAnimation}
+      onHoverEnd={hoverEndAnimation}
+      className={`inline-flex cursor-pointer items-center justify-center ${className}`}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        {/* Back copy */}
+        <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+        {/* Front copy */}
+        <motion.path
+          className="front-copy"
+          d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"
+        />
+      </svg>
+    </motion.div>
+  );
+};
+
+export default CopyIcon;

@@ -4,7 +4,7 @@ import { motion, useAnimate } from "framer-motion";
 const SkullEmoji = ({
   size = 24,
   color = "currentColor",
-  strokeWidth = 1.3,
+  strokeWidth = 2,
   className = "",
 }: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();

@@ -5,7 +5,7 @@ import { motion, useAnimate } from "motion/react";
 const CheckedIcon = ({
   size = 24,
   color = "currentColor",
-  strokeWidth = 1,
+  strokeWidth = 2,
   className = "",
 }: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();

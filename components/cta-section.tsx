@@ -6,6 +6,8 @@ import { ArrowRight } from "lucide-react";
 import PrimaryButton from "@/components/ui/primary-button";
 import SecondaryButton from "@/components/ui/secondary-button";
 import { motion } from "motion/react";
+import RightChevron from "@/icons/right-cheveron";
+import ArrowNarrowRightIcon from "@/icons/arrow-narrow-right-icon";
 
 const CTASection = () => {
   return (
@@ -28,7 +30,8 @@ const CTASection = () => {
           <Link href="/icons">
             <PrimaryButton>
               Browse Icons
-              <ArrowRight className="ml-2 h-4 w-4" />
+              {/* <ArrowRight className="ml-2 h-4 w-4" /> */}
+              <ArrowNarrowRightIcon />
             </PrimaryButton>
           </Link>
           <Link

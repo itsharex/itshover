@@ -11,7 +11,6 @@ const TreeIcon = ({
 
   const hoverAnimation = async () => {
     // Add your animations here
-
   };
 
   return (

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { CommandMenu } from "@/components/cmdk";
+import { CommandMenuProvider } from "@/components/command-menu-context";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
@@ -38,12 +39,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TooltipProvider>
-            <CommandMenu />
-            <Navbar />
-            {children}
-            <Footer />
-          </TooltipProvider>
+          <CommandMenuProvider>
+            <TooltipProvider>
+              <CommandMenu />
+              <Navbar />
+              {children}
+              <Footer />
+            </TooltipProvider>
+          </CommandMenuProvider>
         </ThemeProvider>
       </body>
     </html>

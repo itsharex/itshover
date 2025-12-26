@@ -5,9 +5,14 @@ import { Search, Menu, X } from "lucide-react";
 import { ModeToggle } from "./ui/toggle-button";
 import { Kbd } from "@/components/ui/kbd";
 import GithubStars from "./github-stars";
+import GithubIcon from "@/icons/github-icon";
+import TwitterXIcon from "@/icons/twitter-x-icon";
+import MagnifierIcon from "@/icons/magnifier-icon";
+import { useCommandMenu } from "./command-menu-context";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { toggle: toggleCommandMenu } = useCommandMenu();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -23,13 +28,15 @@ const Navbar = () => {
           >
             <div className="relative flex h-8 w-8 items-center justify-center rounded-md border border-slate-800 bg-black text-sm text-white antialiased md:h-6 md:w-6">
               <div className="absolute inset-x-0 -top-10 h-10 w-full rounded-full bg-white/20 blur-xl"></div>
-              <div className="relative z-20 text-sm text-emerald-500">
+              <div className="text-primary relative z-20 text-sm">
                 {/* Logo placeholder or image */}
-                <div className="h-4 w-4 rounded-full bg-emerald-500" />
+                <div className="bg-primary h-4 w-4 rounded-full" />
               </div>
             </div>
             <div className="flex flex-col">
-              <h1 className="text-foreground font-sans">Brand Name</h1>
+              <h1 className="text-foreground font-sans">
+                <span className="text-primary">Intent</span> UI
+              </h1>
             </div>
           </Link>
         </div>
@@ -53,55 +60,36 @@ const Navbar = () => {
           <GithubStars />
           <Link
             target="__blank"
-            className="hover:text-foreground/80 text-foreground/60 mr-3 text-sm font-medium transition-colors"
+            className="hover:text-foreground/80 text-foreground/60 mr-3 flex items-center justify-center text-sm font-medium transition-colors"
             href="https://discord.gg/ftZbQvCdN7"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-4 w-4 text-neutral-500 dark:text-neutral-500"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-            </svg>
+            <TwitterXIcon className="h-4 w-4 text-neutral-500 dark:text-neutral-500" />
           </Link>
           <Link
             target="__blank"
-            className="hover:text-foreground/80 text-foreground/60 text-sm font-medium transition-colors"
+            className="hover:text-foreground/80 text-foreground/60 flex items-center justify-center text-sm font-medium transition-colors"
             href="https://x.com/abhijitwt"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-4 w-4 text-neutral-500 dark:text-neutral-500"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-            </svg>
+            <GithubIcon size={18} />
           </Link>
 
           <ModeToggle />
 
-          <button className="text-muted-foreground dark:bg-muted/20 relative flex w-fit items-center justify-start rounded-xl border border-transparent bg-white px-4 py-2 text-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] dark:border-white/20">
-            <Search className="h-4 w-4 text-neutral-500" />
-            <span className="hover:text-foreground/80 text-foreground/60 rex pr-4 pl-2 text-xs font-medium transition-colors sm:text-sm">
-              Search <span className="hidden xl:inline-block">Components</span>
-            </span>
+          <button
+            onClick={toggleCommandMenu}
+            className="text-muted-foreground dark:bg-muted/20 relative flex w-fit cursor-pointer items-center justify-start rounded-xl border border-transparent bg-white px-4 py-2 text-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] dark:border-white/20"
+          >
+            <div className="flex items-center">
+              <MagnifierIcon className="text-neutral-500" size={18} />
+            </div>
+            <input
+              type="text"
+              readOnly
+              placeholder="Search Components..."
+              onClick={toggleCommandMenu}
+              onFocus={toggleCommandMenu}
+              className="hover:text-foreground/80 text-foreground/60 w-32 cursor-pointer bg-transparent pr-4 pl-2 text-xs font-medium transition-colors outline-none sm:text-sm xl:w-40"
+            />
             <Kbd>
               <span className="text-xs">⌘</span>K
             </Kbd>

@@ -4,7 +4,7 @@ import { motion, useAnimate } from "motion/react";
 const ToggleIcon = ({
   size = 24,
   color = "currentColor",
-  strokeWidth = 1.3,
+  strokeWidth = 2,
   className = "",
 }: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();
@@ -14,7 +14,7 @@ const ToggleIcon = ({
     await animate(
       ".toggle-knob",
       {
-        x: [0, 12, 0],
+        x: [0, 12],
       },
       {
         duration: 0.4,
@@ -35,10 +35,23 @@ const ToggleIcon = ({
     );
   };
 
+  const hoverEndAnimation = () => {
+    // Reset knob position
+    animate(".toggle-knob", { x: 0 }, { duration: 0.2, ease: "easeOut" });
+
+    // Reset track opacity
+    animate(
+      ".toggle-track",
+      { opacity: 1 },
+      { duration: 0.2, ease: "easeOut" },
+    );
+  };
+
   return (
     <motion.div
       ref={scope}
       onHoverStart={hoverAnimation}
+      onHoverEnd={hoverEndAnimation}
       className={`inline-flex cursor-pointer ${className}`}
     >
       <svg
