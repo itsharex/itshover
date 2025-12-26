@@ -11,14 +11,11 @@ const BatteryIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Reset bolt before starting
     await animate(
       ".battery-bolt",
       { pathLength: 0, opacity: 0 },
       { duration: 0 },
     );
-
-    // 1. Draw charging bolt
     animate(
       ".battery-bolt",
       {
@@ -30,8 +27,6 @@ const BatteryIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // 2. Battery pulse (charging feel)
     animate(
       ".battery-body",
       {
@@ -42,8 +37,6 @@ const BatteryIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // 3. Energy surge flash
     await animate(
       ".battery-bolt",
       {
@@ -73,17 +66,14 @@ const BatteryIcon = ({
         strokeMiterlimit="10"
         strokeLinecap="square"
       >
-        {/* Battery terminal */}
         <motion.path className="battery-terminal" d="M46 20V28" />
 
-        {/* Battery body */}
         <motion.path
           className="battery-body"
           style={{ transformOrigin: "50% 50%" }}
           d="M37 10H8C5.23858 10 3 12.2386 3 15V33C3 35.7614 5.23858 38 8 38H37C39.7614 38 42 35.7614 42 33V15C42 12.2386 39.7614 10 37 10Z"
         />
 
-        {/* Charging bolt */}
         <motion.path
           className="battery-bolt"
           style={{ transformOrigin: "22.5px 24px" }}

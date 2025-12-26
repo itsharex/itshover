@@ -10,7 +10,6 @@ const ToggleIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Preview slide (hint of ON state)
     await animate(
       ".toggle-knob",
       {
@@ -21,8 +20,6 @@ const ToggleIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // Subtle track feedback
     animate(
       ".toggle-track",
       {
@@ -36,10 +33,7 @@ const ToggleIcon = ({
   };
 
   const hoverEndAnimation = () => {
-    // Reset knob position
     animate(".toggle-knob", { x: 0 }, { duration: 0.2, ease: "easeOut" });
-
-    // Reset track opacity
     animate(
       ".toggle-track",
       { opacity: 1 },
@@ -65,13 +59,11 @@ const ToggleIcon = ({
         strokeLinecap="square"
         strokeMiterlimit="10"
       >
-        {/* Toggle track */}
         <motion.path
           className="toggle-track"
           d="m10,7h12c4.971,0,9,4.029,9,9h0c0,4.971-4.029,9-9,9h-12c-4.971,0-9-4.029-9-9h0c0-4.971,4.029-9,9-9Z"
         />
 
-        {/* Toggle knob */}
         <motion.circle
           className="toggle-knob"
           cx="10"

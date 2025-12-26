@@ -10,7 +10,6 @@ const FilledCheckedIcon = ({
 }: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();
   const hoverAnimation = async () => {
-    // Scale up SVG and animate circle
     await animate(
       "svg",
       {
@@ -21,8 +20,6 @@ const FilledCheckedIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // Pulse the filled circle
     animate(
       ".filled-circle",
       {
@@ -34,8 +31,6 @@ const FilledCheckedIcon = ({
         ease: "easeOut",
       },
     );
-
-    // Reset checkmark path
     await animate(
       ".check-icon",
       {
@@ -46,8 +41,6 @@ const FilledCheckedIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // Animate circle back while drawing checkmark
     animate(
       ".filled-circle",
       {
@@ -59,8 +52,6 @@ const FilledCheckedIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // Draw checkmark
     await animate(
       ".check-icon",
       {
@@ -71,8 +62,6 @@ const FilledCheckedIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // Scale SVG back to normal
     await animate(
       "svg",
       {
@@ -100,13 +89,11 @@ const FilledCheckedIcon = ({
         className=""
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        {/* Filled Circle */}
         <motion.path
           d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336z"
           className={`filled-circle ${className}`}
           style={{ transformOrigin: "center" }}
         />
-        {/* Checkmark */}
         <motion.path
           d="M15.707 9.293a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
           className="check-icon text-background"

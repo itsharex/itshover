@@ -10,13 +10,11 @@ const TerminalIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Cursor blink animation on the underscore
     animate(
       ".cursor-line",
       { opacity: [1, 0, 1, 0, 1] },
       { duration: 0.8, ease: "easeInOut" },
     );
-    // Chevron pulse
     animate(
       ".terminal-chevron",
       { x: [0, 2, 0] },
@@ -48,9 +46,7 @@ const TerminalIcon = ({
         strokeLinejoin="round"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        {/* Chevron */}
         <motion.path className="terminal-chevron" d="M5 7l5 5l-5 5" />
-        {/* Cursor line */}
         <motion.path className="cursor-line" d="M12 19l7 0" />
       </svg>
     </motion.div>

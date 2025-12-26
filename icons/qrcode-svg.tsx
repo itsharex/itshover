@@ -10,34 +10,29 @@ const QRCodeSVG = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Reset all elements first
     animate(".qr-scan", { opacity: 0, y: 0 }, { duration: 0 });
     animate(".corner-rect", { pathLength: 0, opacity: 0 }, { duration: 0 });
     animate(".inner-element", { opacity: 0, scale: 0.8 }, { duration: 0 });
     animate(".center-dot", { scale: 0, opacity: 0 }, { duration: 0 });
 
-    // 1. Animate corner rectangles drawing in with stagger
     await animate(
       ".corner-rect",
       { pathLength: [0, 1], opacity: [0, 1] },
       { duration: 0.4, ease: "easeOut", delay: (i) => i * 0.1 },
     );
 
-    // 2. Start the scan line animation (loops)
     animate(
       ".qr-scan",
       { opacity: [0, 1, 1, 0], y: [0, 30, 0, 0] },
       { duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.3 },
     );
 
-    // 3. Fade in inner QR elements with scale effect
     await animate(
       ".inner-element",
       { opacity: [0, 1], scale: [0.8, 1] },
       { duration: 0.3, ease: "easeOut", delay: (i) => i * 0.05 },
     );
 
-    // 4. Pop in the center dots
     animate(
       ".center-dot",
       { scale: [0, 1.2, 1], opacity: [0, 1] },
@@ -46,7 +41,6 @@ const QRCodeSVG = ({
   };
 
   const hoverEndAnimation = () => {
-    // Stop scan line and fade everything out smoothly
     animate(".qr-scan", { opacity: 0 }, { duration: 0.3 });
     animate(".corner-rect", { opacity: 1, pathLength: 1 }, { duration: 0.2 });
     animate(".inner-element", { opacity: 1, scale: 1 }, { duration: 0.2 });
@@ -69,7 +63,6 @@ const QRCodeSVG = ({
         className={`qr-code ${className}`}
         style={{ overflow: "visible" }}
       >
-        {/* Scan line */}
         <motion.rect
           className="qr-scan"
           x="2"
@@ -81,7 +74,6 @@ const QRCodeSVG = ({
           style={{ filter: "drop-shadow(0 0 4px currentColor)" }}
         />
 
-        {/* Top-left corner square */}
         <motion.rect
           className="corner-rect"
           x="3"
@@ -94,7 +86,6 @@ const QRCodeSVG = ({
           initial={{ pathLength: 1 }}
         />
 
-        {/* Bottom-left corner square */}
         <motion.rect
           className="corner-rect"
           x="3"
@@ -107,7 +98,6 @@ const QRCodeSVG = ({
           initial={{ pathLength: 1 }}
         />
 
-        {/* Top-right corner square */}
         <motion.rect
           className="corner-rect"
           x="20"
@@ -120,7 +110,6 @@ const QRCodeSVG = ({
           initial={{ pathLength: 1 }}
         />
 
-        {/* Inner QR pattern elements */}
         <motion.rect
           className="inner-element"
           x="27"
@@ -195,7 +184,6 @@ const QRCodeSVG = ({
           style={{ transformOrigin: "center" }}
         />
 
-        {/* Center dots in corner squares */}
         <motion.rect
           className="center-dot"
           x="24"

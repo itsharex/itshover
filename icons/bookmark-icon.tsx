@@ -55,7 +55,6 @@ const BookmarkIcon = ({
         strokeMiterlimit="10"
         strokeLinecap="square"
       >
-        {/* Bookmark body */}
         <motion.path
           className="bookmark-body"
           style={{ transformOrigin: "50% 20%" }}

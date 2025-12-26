@@ -10,7 +10,6 @@ const BatteryChargingIcon = ({
 }: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();
 
-  // Initial state: all bars hidden
   useEffect(() => {
     animate(".battery-bar-1", { opacity: 0 }, { duration: 0 });
     animate(".battery-bar-2", { opacity: 0 }, { duration: 0 });
@@ -69,7 +68,6 @@ const BatteryChargingIcon = ({
         strokeWidth={strokeWidth}
         strokeLinecap="square"
       >
-        {/* Charging bars */}
         <motion.path
           initial={{
             opacity: 0,
@@ -99,10 +97,8 @@ const BatteryChargingIcon = ({
           d="M31 31V17"
         />
 
-        {/* Terminal */}
         <motion.path d="M46 20V28" />
 
-        {/* Battery body */}
         <motion.path d="M37 10H8C5.2386 10 3 12.2386 3 15V33C3 35.7614 5.2386 38 8 38H37C39.7614 38 42 35.7614 42 33V15C42 12.2386 39.7614 10 37 10Z" />
       </svg>
     </motion.div>

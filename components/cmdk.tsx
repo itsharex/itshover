@@ -20,7 +20,6 @@ export const CommandMenu = () => {
   const router = useRouter();
   const dialogRef = React.useRef<HTMLDivElement>(null);
 
-  // Handle outside click
   React.useEffect(() => {
     if (!isOpen) return;
 
@@ -30,7 +29,6 @@ export const CommandMenu = () => {
       }
     };
 
-    // Use setTimeout to avoid immediate trigger from the button click
     const timeoutId = setTimeout(() => {
       document.addEventListener("mousedown", handleClickOutside);
     }, 0);
@@ -41,7 +39,6 @@ export const CommandMenu = () => {
     };
   }, [isOpen, setIsOpen]);
 
-  // Toggle the menu when ⌘K is pressed
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -70,6 +67,20 @@ export const CommandMenu = () => {
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
 
+            <CommandGroup heading="Socials">
+              <CommandItem className="gap-4">
+                <MoveRight className="h-4 w-4" />
+                GitHub
+              </CommandItem>
+              <CommandItem className="gap-4">
+                <MoveRight className="h-4 w-4" />X formerly Twitter
+              </CommandItem>
+              <CommandItem className="gap-4">
+                <MoveRight className="h-4 w-4" />
+                LinkedIn
+              </CommandItem>
+            </CommandGroup>
+
             <CommandGroup heading="Icons">
               {ICONS.map((icon) => (
                 <CommandItem
@@ -84,6 +95,24 @@ export const CommandMenu = () => {
                   {icon.name}
                 </CommandItem>
               ))}
+            </CommandGroup>
+            <CommandGroup heading="Support">
+              <CommandItem className="gap-4">
+                <MoveRight className="h-4 w-4" />
+                Facing issue?
+              </CommandItem>
+              <CommandItem className="gap-4">
+                <MoveRight className="h-4 w-4" />
+                Request feature
+              </CommandItem>
+              <CommandItem className="gap-4">
+                <MoveRight className="h-4 w-4" />
+                Report bug
+              </CommandItem>
+              <CommandItem className="gap-4">
+                <MoveRight className="h-4 w-4" />
+                Contribute
+              </CommandItem>
             </CommandGroup>
           </CommandList>
         </Command>

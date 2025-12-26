@@ -10,7 +10,6 @@ const SkullEmoji = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Skull shake with intensity
     animate(
       ".skull-head",
       {
@@ -22,8 +21,6 @@ const SkullEmoji = ({
         ease: "easeInOut",
       },
     );
-
-    // Eyes grow and shrink (spooky)
     animate(
       ".skull-eye-left, .skull-eye-right",
       {
@@ -34,8 +31,6 @@ const SkullEmoji = ({
         ease: "easeInOut",
       },
     );
-
-    // Teeth chatter
     await animate(
       ".skull-tooth",
       {
@@ -47,8 +42,6 @@ const SkullEmoji = ({
         delay: 0.1,
       },
     );
-
-    // Final bounce
     await animate(
       ".skull-head",
       {
@@ -81,23 +74,18 @@ const SkullEmoji = ({
         strokeMiterlimit="10"
         strokeLinecap="square"
       >
-        {/* Left tooth */}
         <motion.path className="skull-tooth-left skull-tooth" d="M14 27V30" />
-        {/* Right tooth */}
         <motion.path className="skull-tooth-right skull-tooth" d="M18 27V30" />
-        {/* Skull head */}
         <motion.path
           className="skull-head"
           style={{ transformOrigin: "16px 16px" }}
           d="M16 2C9.09644 2 3.5 7.59644 3.5 14.5C3.5 18.8099 5.68123 22.6104 9 24.8577L9.32436 28.1936C9.424 29.2183 10.2854 30 11.315 30H20.685C21.7146 30 22.576 29.2183 22.6756 28.1936L23 24.8577C26.3188 22.6104 28.5 18.8099 28.5 14.5C28.5 7.59644 22.9036 2 16 2Z"
         />
-        {/* Right eye */}
         <motion.path
           className="skull-eye-right"
           style={{ transformOrigin: "21px 16px" }}
           d="M24 16C24 17.6569 22.6569 19 21 19C19.3431 19 18 17.6569 18 16C18 15.25 20.2198 13 21 13C22.6569 13 24 14.3431 24 16Z"
         />
-        {/* Left eye */}
         <motion.path
           className="skull-eye-left"
           style={{ transformOrigin: "11px 16px" }}

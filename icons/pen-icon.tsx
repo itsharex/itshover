@@ -10,7 +10,6 @@ const PenIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // 1️⃣ Pen writes upward
     await animate(
       ".pen-icon",
       {
@@ -23,8 +22,6 @@ const PenIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // 2️⃣ Draw ink
     await animate(
       ".pen-slash",
       {
@@ -36,8 +33,6 @@ const PenIcon = ({
         ease: "easeOut",
       },
     );
-
-    // 3️⃣ Reset ink
     await animate(
       ".pen-slash",
       {
@@ -49,8 +44,6 @@ const PenIcon = ({
         ease: "easeInOut",
       },
     );
-
-    // 4️⃣ Reset pen to OG position
     await animate(
       ".pen-icon",
       {
@@ -83,7 +76,6 @@ const PenIcon = ({
         strokeMiterlimit="10"
         className="pen-icon"
       >
-        {/* Ink */}
         <motion.line
           className="pen-slash"
           x1="20.031"
@@ -93,7 +85,6 @@ const PenIcon = ({
           initial={{ pathLength: 0, opacity: 1 }}
         />
 
-        {/* Pen */}
         <motion.path
           className="pen-body"
           style={{ transformOrigin: "60% 40%" }}

@@ -11,14 +11,11 @@ const SimpleCheckedIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Reset path to 0
     await animate(
       ".check-path",
       { pathLength: 0 },
       { duration: 0.1, ease: "easeInOut" },
     );
-
-    // Draw path from 0 to 1
     await animate(
       ".check-path",
       { pathLength: 1 },

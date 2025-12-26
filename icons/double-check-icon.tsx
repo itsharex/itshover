@@ -10,7 +10,6 @@ const DoubleCheckIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Add your animations here
     await animate(
       ".check-first",
       {
@@ -53,14 +52,12 @@ const DoubleCheckIcon = ({
         strokeMiterlimit="10"
         strokeLinecap="square"
       >
-        {/* First check */}
         <motion.path
           className="check-first"
           style={{ transformOrigin: "19px 25px" }}
           d="M3 26.4L11.8846 39L35 11"
         />
 
-        {/* Second check */}
         <motion.path
           className="check-second"
           style={{ transformOrigin: "33px 25px" }}

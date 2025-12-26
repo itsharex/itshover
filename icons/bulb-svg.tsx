@@ -10,7 +10,6 @@ const BulbSvg = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Reset all rays to 0 opacity
     await Promise.all([
       animate(".ray-left", { opacity: 0 }, { duration: 0.1 }),
       animate(".ray-top", { opacity: 0 }, { duration: 0.1 }),
@@ -18,8 +17,6 @@ const BulbSvg = ({
       animate(".ray-top-left", { opacity: 0 }, { duration: 0.1 }),
       animate(".ray-top-right", { opacity: 0 }, { duration: 0.1 }),
     ]);
-
-    // Animate all rays from 0 to 1 opacity
     await Promise.all([
       animate(".ray-left", { opacity: 1 }, { duration: 0.4, ease: "easeOut" }),
       animate(".ray-top", { opacity: 1 }, { duration: 0.4, ease: "easeOut" }),
@@ -48,12 +45,10 @@ const BulbSvg = ({
         className={`bulb-icon cursor-pointer ${className}`}
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        {/* Left ray */}
         <motion.path
           className="ray-left"
           d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z"
         />
-        {/* Top ray */}
         <motion.path
           className="ray-top"
           d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z"

@@ -42,13 +42,11 @@ const MagnifierIcon = ({
         className="magnifier-icon"
         style={{ transformOrigin: "13px 13px" }}
       >
-        {/* Handle */}
         <motion.path
           className="magnifier-handle"
           d="m21.393,18.565l7.021,7.021c.781.781.781,2.047,0,2.828h0c-.781.781-2.047.781-2.828,0l-7.021-7.021"
         />
 
-        {/* Lens */}
         <motion.circle
           className="magnifier-lens"
           cx="13"

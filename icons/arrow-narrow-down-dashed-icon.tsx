@@ -10,7 +10,6 @@ const ArrowNarrowDownDashedIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Animate arrow down with bounce effect
     await animate(
       ".arrow-group",
       {
@@ -46,12 +45,10 @@ const ArrowNarrowDownDashedIcon = ({
         strokeLinejoin="round"
       >
         <motion.g className="arrow-group">
-          {/* Dashed line segments */}
           <path d="M12 5v.5" />
           <path d="M12 8.5v1.5" />
           <path d="M12 13v6" />
 
-          {/* Arrow heads */}
           <path d="M16 15l-4 4" />
           <path d="M8 15l4 4" />
         </motion.g>

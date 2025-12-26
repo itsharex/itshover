@@ -10,13 +10,11 @@ const CopyOffIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Shake animation for the slash line
     animate(
       ".slash-line",
       { rotate: [0, -5, 5, 0] },
       { duration: 0.4, ease: "easeInOut" },
     );
-    // Fade the copies
     animate(
       ".copy-elements",
       { opacity: [1, 0.5, 1] },

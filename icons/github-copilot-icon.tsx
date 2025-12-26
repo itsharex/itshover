@@ -10,7 +10,6 @@ const GithubCopilotIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Eyes blink animation
     animate(
       ".eye-left",
       { scaleY: [1, 0.1, 1] },

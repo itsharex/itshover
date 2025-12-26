@@ -10,7 +10,6 @@ const GearIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // 1. Engage the center (very subtle)
     animate(
       ".gear-body",
       {
@@ -24,8 +23,6 @@ const GearIcon = ({
       { scale: [1, 1.08, 1] },
       { duration: 0.3, ease: "easeOut" },
     );
-
-    // 2. Mechanical spin: forward, accelerate → decelerate
     await animate(
       ".gear-icon",
       { rotate: [0, 180, 360] },
@@ -56,7 +53,6 @@ const GearIcon = ({
         strokeMiterlimit="10"
         className="gear-icon"
       >
-        {/* Inner circle */}
         <motion.circle
           className="gear-center"
           cx="16"
@@ -64,7 +60,6 @@ const GearIcon = ({
           r="5"
           style={{ transformOrigin: "16px 16px" }}
         />
-        {/* Gear teeth/body */}
         <motion.path
           className="gear-body"
           style={{ transformOrigin: "16px 16px" }}

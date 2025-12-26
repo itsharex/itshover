@@ -10,7 +10,6 @@ const ShieldCheck = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Shield soft confirmation pulse
     animate(
       ".shield-body",
       {
@@ -21,8 +20,6 @@ const ShieldCheck = ({
         ease: "easeOut",
       },
     );
-
-    // Draw checkmark
     await animate(
       ".shield-check",
       {
@@ -53,19 +50,13 @@ const ShieldCheck = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        {/* Shield body */}
         <motion.path
           className="shield-body"
           style={{ transformOrigin: "50% 50%" }}
           d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06"
         />
 
-        {/* Checkmark */}
-        <motion.path
-          className="shield-check"
-          // initial={{ pathLength: 0, opacity: 0 }}
-          d="M15 19l2 2l4 -4"
-        />
+        <motion.path className="shield-check" d="M15 19l2 2l4 -4" />
       </svg>
     </motion.div>
   );

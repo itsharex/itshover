@@ -50,10 +50,6 @@ const TrashIcon = ({
 
   const hoverAnimation = async () => {
     await openLid();
-
-    // if (!keepOpenOnDelete) {
-    //   await closeLid();
-    // }
   };
 
   const clickAnimation = async () => {
@@ -118,19 +114,16 @@ const TrashIcon = ({
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
 
-        {/* Lower lid */}
         <motion.path
           d="M4 7l16 0"
           className="trash-lid-lower"
           style={{ transformOrigin: "50% 100%" }}
         />
 
-        {/* Body */}
         <path d="M10 11l0 6" />
         <path d="M14 11l0 6" />
         <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
 
-        {/* Upper lid */}
         <motion.path
           d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"
           className="trash-lid-upper"

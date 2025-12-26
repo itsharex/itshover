@@ -41,9 +41,7 @@ const ArrowNarrowLeftDashedIcon = ({
       >
         <motion.g className="arrow-group">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          {/* Dashed line segments */}
           <path d="M5 12h6m3 0h1.5m3 0h.5" />
-          {/* Arrow heads */}
           <path d="M5 12l4 4" />
           <path d="M5 12l4 -4" />
         </motion.g>

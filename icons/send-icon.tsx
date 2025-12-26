@@ -10,7 +10,6 @@ const SendIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Fly forward along 45°
     await animate(
       ".send-icon",
       {
@@ -23,8 +22,6 @@ const SendIcon = ({
         ease: "easeIn",
       },
     );
-
-    // Instantly move back behind
     await animate(
       ".send-icon",
       {
@@ -33,8 +30,6 @@ const SendIcon = ({
       },
       { duration: 0 },
     );
-
-    // Fly back in
     await animate(
       ".send-icon",
       {

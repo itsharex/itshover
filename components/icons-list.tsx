@@ -8,138 +8,138 @@ import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 
 const IconList = () => {
-    const searchInputRef = useRef<SearchInputRef>(null);
+  const searchInputRef = useRef<SearchInputRef>(null);
 
-    const options = {
-        keys: [
-            { name: "name", weight: 3 },
-            { name: "keywords", weight: 2 },
-        ],
-        threshold: 0.3,
-        ignoreLocation: true,
-        findAllMatches: true,
-        isCaseSensitive: false,
-        minMatchCharLength: 2,
-    };
-    const fuse = new Fuse(ICON_LIST, options);
-    const [searchQuery, setSearchQuery] = React.useState("");
-    const search = (query: string) => {
-        return fuse.search(query);
-    };
+  const options = {
+    keys: [
+      { name: "name", weight: 3 },
+      { name: "keywords", weight: 2 },
+    ],
+    threshold: 0.3,
+    ignoreLocation: true,
+    findAllMatches: true,
+    isCaseSensitive: false,
+    minMatchCharLength: 2,
+  };
+  const fuse = new Fuse(ICON_LIST, options);
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const search = (query: string) => {
+    return fuse.search(query);
+  };
 
-    const [filteredIcons, setFilteredIcons] = useState(ICON_LIST);
+  const [filteredIcons, setFilteredIcons] = useState(ICON_LIST);
 
-    useEffect(() => {
-        if (searchQuery.trim() === "") {
-            setFilteredIcons(ICON_LIST);
-        } else {
-            const result = search(searchQuery);
-            setFilteredIcons(result.map((r) => r.item));
-        }
-    }, [searchQuery]);
+  useEffect(() => {
+    if (searchQuery.trim() === "") {
+      setFilteredIcons(ICON_LIST);
+    } else {
+      const result = search(searchQuery);
+      setFilteredIcons(result.map((r) => r.item));
+    }
+  }, [searchQuery]);
 
-    // Ctrl+F to focus search input
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === "f" && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault();
-                searchInputRef.current?.focus();
-            }
-        };
-
-        document.addEventListener("keydown", handleKeyDown);
-        return () => document.removeEventListener("keydown", handleKeyDown);
-    }, []);
-
-    // Container animation variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.03,
-                delayChildren: 0.1,
-            },
-        },
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "f" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
     };
 
-    // Item animation variants
-    const itemVariants = {
-        hidden: {
-            opacity: 0,
-            y: 20,
-            scale: 0.95,
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.3,
-                ease: "easeOut" as const,
-            },
-        },
-        exit: {
-            opacity: 0,
-            scale: 0.9,
-            transition: {
-                duration: 0.2,
-            },
-        },
-    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
-    return (
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.03,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut" as const,
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      className="w-full"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <motion.div
+        className="mb-10 ml-20"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+      >
+        <SearchInput
+          ref={searchInputRef}
+          value={searchQuery}
+          onChange={setSearchQuery}
+          className="w-1/2"
+        />
+      </motion.div>
+
+      <AnimatePresence mode="wait">
         <motion.div
-            className="w-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
+          key={searchQuery || "all"}
+          className="max-w-8xl flex flex-wrap items-center justify-start gap-4 sm:ml-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
+          {filteredIcons &&
+            filteredIcons.map((icon, index) => (
+              <motion.div key={icon.name} variants={itemVariants} layout>
+                <IconCard name={icon.name} icon={icon.icon} />
+              </motion.div>
+            ))}
+
+          {!filteredIcons?.length && (
             <motion.div
-                className="mb-10 ml-20"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
+              className="flex h-40 w-full items-center justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
-                <SearchInput
-                    ref={searchInputRef}
-                    value={searchQuery}
-                    onChange={setSearchQuery}
-                    className="w-1/2"
-                />
+              <p className="text-muted-foreground text-sm">
+                No icons found, Try other keyword or{" "}
+                <Link href="/request" className="text-primary hover:underline">
+                  Request for new icons
+                </Link>
+              </p>
             </motion.div>
-
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={searchQuery || "all"}
-                    className="max-w-8xl flex flex-wrap items-center justify-start gap-4 sm:ml-20"
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    {filteredIcons && filteredIcons.map((icon, index) => (
-                        <motion.div key={icon.name} variants={itemVariants} layout>
-                            <IconCard name={icon.name} icon={icon.icon} />
-                        </motion.div>
-                    ))}
-
-                    {!filteredIcons?.length && (
-                        <motion.div
-                            className="flex items-center justify-center w-full h-40"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.1 }}
-                        >
-                            <p className="text-muted-foreground text-sm">
-                                No icons found, Try other keyword or{" "}
-                                <Link href="/request" className="text-primary hover:underline">Request for new icons</Link>
-                            </p>
-                        </motion.div>
-                    )}
-                </motion.div>
-            </AnimatePresence>
+          )}
         </motion.div>
-    );
+      </AnimatePresence>
+    </motion.div>
+  );
 };
 
 export default IconList;

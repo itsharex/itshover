@@ -94,10 +94,8 @@ export const CodeBlock = ({ command, className }: CodeBlockProps) => {
             className="text-foreground hover:bg-foreground/10 hover:text-foreground absolute top-1/2 right-4 flex -translate-y-1/2 items-center rounded-md p-2 opacity-0 transition-all group-hover:opacity-100 focus:opacity-100"
           >
             {copied ? (
-              // <Check className="h-4 w-4 text-green-500" />
               <SimpleCheckedIcon className="text-green-500" size={18} />
             ) : (
-              // <Copy className="h-4 w-4" />
               <CopyIcon size={18} />
             )}
           </button>

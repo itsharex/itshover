@@ -10,7 +10,6 @@ const AlignCenterIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Stagger animation for each line
     animate(
       ".line-1",
       { scaleX: [1, 0.8, 1] },

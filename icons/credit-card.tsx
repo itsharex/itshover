@@ -10,7 +10,6 @@ const CreditCard = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Card tilt
     animate(
       ".card-body",
       {
@@ -22,8 +21,6 @@ const CreditCard = ({
         ease: "easeInOut",
       },
     );
-
-    // Stripe shimmer (swipe illusion)
     await animate(
       ".card-stripe",
       {
@@ -35,8 +32,6 @@ const CreditCard = ({
         ease: "easeInOut",
       },
     );
-
-    // Chip pulse
     animate(
       ".card-chip",
       {
@@ -67,24 +62,20 @@ const CreditCard = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        {/* Card body */}
         <motion.path
           className="card-body"
           style={{ transformOrigin: "50% 50%" }}
           d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"
         />
 
-        {/* Magnetic stripe */}
         <motion.path className="card-stripe" d="M3 10l18 0" opacity="0" />
 
-        {/* Chip dot */}
         <motion.path
           className="card-chip"
           style={{ transformOrigin: "7px 15px" }}
           d="M7 15l.01 0"
         />
 
-        {/* Card number */}
         <motion.path className="card-number" d="M11 15l2 0" />
       </svg>
     </motion.div>

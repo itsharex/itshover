@@ -10,13 +10,11 @@ const BrightnessDownIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    // Pulse the center circle
     animate(
       ".sun-center",
       { scale: [1, 0.8, 1] },
       { duration: 0.4, ease: "easeInOut" },
     );
-    // Fade the rays
     animate(
       ".sun-rays",
       { opacity: [1, 0.4, 1] },
@@ -48,13 +46,11 @@ const BrightnessDownIcon = ({
         strokeLinejoin="round"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        {/* Sun center */}
         <motion.path
           className="sun-center"
           d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"
           style={{ transformOrigin: "center" }}
         />
-        {/* Sun rays (dots) */}
         <motion.g className="sun-rays">
           <path d="M12 5l0 .01" />
           <path d="M17 7l0 .01" />
