@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "intent-ui",
-  "homepage": "https://abhijit.website",
+  "homepage": "https://intent-ui.vercel.app",
   "items": [
     {
       "name": "battery-icon",
@@ -232,7 +232,7 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "icons/instagram.tsx",
+          "path": "icons/instagram-icon.tsx",
           "type": "registry:ui"
         },
         {

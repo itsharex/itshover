@@ -181,9 +181,8 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
           </AnimatePresence>
         </div>
 
-        {/* Subtle bottom highlight */}
         <motion.div
-          className="via-primary/50 absolute bottom-0 left-1/2 h-px -translate-x-1/2 bg-gradient-to-r from-transparent to-transparent"
+          className="via-primary/50 absolute bottom-0 left-1/2 h-px -translate-x-1/2 bg-linear-to-r from-transparent to-transparent"
           initial={{ width: "0%" }}
           animate={{ width: isFocused ? "80%" : "0%" }}
           transition={{ duration: 0.3, ease: "easeOut" }}

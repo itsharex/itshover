@@ -30,7 +30,7 @@ const HeroSection = () => {
         }}
       />
       <motion.div
-        className="from-primary/15 pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 rounded-full bg-gradient-to-tl to-transparent blur-3xl"
+        className="from-primary/15 pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 rounded-full bg-linear-to-tl to-transparent blur-3xl"
         animate={{
           scale: [1.2, 1, 1.2],
           opacity: [0.2, 0.4, 0.2],
@@ -124,7 +124,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             >
               <div className="relative w-full max-w-xl">
-                <div className="from-primary/20 via-primary/10 absolute inset-0 -z-10 translate-y-4 scale-95 rounded-2xl bg-gradient-to-br to-transparent opacity-50 blur-2xl" />
+                <div className="from-primary/20 via-primary/10 absolute inset-0 -z-10 translate-y-4 scale-95 rounded-2xl bg-linear-to-br to-transparent opacity-50 blur-2xl" />
                 <CodeBlock
                   command="@lucide-animated/circle-chevron-down"
                   className="shadow-2xl"

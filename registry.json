@@ -232,7 +232,7 @@
       "devDependencies": [],
       "files": [
         {
-          "path": "icons/instagram.tsx",
+          "path": "icons/instagram-icon.tsx",
           "type": "registry:ui"
         },
         {

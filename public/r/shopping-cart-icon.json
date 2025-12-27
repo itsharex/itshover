@@ -1,7 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shopping-cart-icon",
-  "dependencies": ["motion"],
+  "dependencies": [
+    "motion"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

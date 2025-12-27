@@ -1,7 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "filled-checked-icon",
-  "dependencies": ["motion"],
+  "dependencies": [
+    "motion"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [
