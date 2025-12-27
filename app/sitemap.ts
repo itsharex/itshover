@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { ICON_LIST } from "@/icons/index";
+import { ICON_NAMES } from "@/lib/icon-names";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://intent-ui.com";
@@ -27,8 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic icon pages
-  const iconPages: MetadataRoute.Sitemap = ICON_LIST.map((icon) => ({
-    url: `${baseUrl}/icons/${icon.name}`,
+  const iconPages: MetadataRoute.Sitemap = ICON_NAMES.map((name) => ({
+    url: `${baseUrl}/icons/${name}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
@@ -36,3 +36,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticPages, ...iconPages];
 }
+
