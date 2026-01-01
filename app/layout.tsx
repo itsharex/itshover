@@ -8,6 +8,7 @@ import { CommandMenu } from "@/components/cmdk";
 import { CommandMenuProvider } from "@/components/command-menu-context";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LINKS } from "@/constants";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,6 +68,7 @@ export default function RootLayout({
             </TooltipProvider>
           </CommandMenuProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
