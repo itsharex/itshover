@@ -591,4 +591,60 @@ export const ICONS = [
     name: "wifi off icon",
     path: "/icons/wifi-off-icon",
   },
+  {
+    name: "radio icon",
+    path: "/icons/radio-icon",
+  },
+  {
+    name: "router icon",
+    path: "/icons/router-icon",
+  },
+  {
+    name: "satellite dish icon",
+    path: "/icons/satellite-dish-icon",
+  },
+  {
+    name: "scan barcode icon",
+    path: "/icons/scan-barcode-icon",
+  },
+  {
+    name: "send horizontal icon",
+    path: "/icons/send-horizontal-icon",
+  },
+  {
+    name: "soup icon",
+    path: "/icons/soup-icon",
+  },
+  {
+    name: "subscript icon",
+    path: "/icons/subscript-icon",
+  },
+  {
+    name: "target icon",
+    path: "/icons/target-icon",
+  },
+  {
+    name: "triangle alert icon",
+    path: "/icons/triangle-alert-icon",
+  },
+  {
+    name: "truck electric icon",
+    path: "/icons/truck-electric-icon",
+  },
+  {
+    name: "twitter icon",
+    path: "/icons/twitter-icon",
+  },
+  {
+    name: "unlink icon",
+    path: "/icons/unlink-icon",
+  },
+  {
+    name: "volume 2 icon",
+    path: "/icons/volume-2-icon",
+  },
+  {
+    name: "volume x icon",
+    path: "/icons/volume-x-icon",
+  },
 ];

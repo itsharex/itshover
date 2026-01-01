@@ -114,27 +114,36 @@ import PythonIcon from "./python-icon";
 import PlayerIcon from "./player-icon";
 import QrCodeIcon from "./qrcode-icon";
 import QuestionMark from "./question-mark";
+import RadioIcon from "./radio-icon";
 import RainbowIcon from "./rainbow-icon";
 import RefreshIcon from "./refresh-icon";
 import RightCheveron from "./right-cheveron";
 import RocketIcon from "./rocket-icon";
+import RouterIcon from "./router-icon";
 import RosetteDiscountIcon from "./rosette-discount-icon";
 import RosetteDiscountCheckIcon from "./rosette-discount-check-icon";
+import SatelliteDishIcon from "./satellite-dish-icon";
+import ScanBarcodeIcon from "./scan-barcode-icon";
 import ScanHeartIcon from "./scan-heart-icon";
 import SendIcon from "./send-icon";
+import SendHorizontalIcon from "./send-horizontal-icon";
 import ShieldCheck from "./shield-check";
 import ShoppingCartIcon from "./shopping-cart-icon";
 import SimpleCheckedIcon from "./simple-checked-icon";
 import SkullEmoji from "./skull-emoji";
 import SlackIcon from "./slack-icon";
 import SnapchatIcon from "./snapchat-icon";
+import SoupIcon from "./soup-icon";
 import SparklesIcon from "./sparkles-icon";
 import SpotifyIcon from "./spotify-icon";
 import StarIcon from "./star-icon";
+import SubscriptIcon from "./subscript-icon";
+import TargetIcon from "./target-icon";
 import TelephoneIcon from "./telephone-icon";
 import ArrowDownAZIcon from "./arrow-down-a-z-icon";
 import ToggleIcon from "./toggle-icon";
 import TrashIcon from "./trash-icon";
+import TruckElectricIcon from "./truck-electric-icon";
 import UnorderedListIcon from "./unordered-list-icon";
 import UserCheckIcon from "./user-check-icon";
 import UserPlusIcon from "./user-plus-icon";
@@ -158,9 +167,14 @@ import WifiOffIcon from "./wifi-off-icon";
 import WhatsappIcon from "./whatsapp-icon";
 import WorldIcon from "./world-icon";
 import TerminalIcon from "./terminal-icon";
+import TriangleAlertIcon from "./triangle-alert-icon";
+import TwitterIcon from "./twitter-icon";
 import TwitterXIcon from "./twitter-x-icon";
 import TypeScriptIcon from "./typescript-icon";
+import UnlinkIcon from "./unlink-icon";
 import VercelIcon from "./vercel-icon";
+import Volume2Icon from "./volume-2-icon";
+import VolumeXIcon from "./volume-x-icon";
 import XIcon from "./x-icon";
 import YoutubeIcon from "./youtube-icon";
 
@@ -1178,6 +1192,97 @@ const ICON_LIST: IconType[] = [
     name: "typescript-icon",
     icon: TypeScriptIcon,
     keywords: ["typescript", "ts", "code", "programming", "javascript"],
+  },
+  {
+    name: "triangle-alert-icon",
+    icon: TriangleAlertIcon,
+    keywords: ["triangle", "alert", "warning", "caution", "danger", "error"],
+  },
+  {
+    name: "truck-electric-icon",
+    icon: TruckElectricIcon,
+    keywords: ["truck", "electric", "vehicle", "delivery", "transport", "ev"],
+  },
+  {
+    name: "twitter-icon",
+    icon: TwitterIcon,
+    keywords: ["twitter", "bird", "social", "tweet", "social media"],
+  },
+  {
+    name: "unlink-icon",
+    icon: UnlinkIcon,
+    keywords: ["unlink", "disconnect", "break", "chain", "separate", "detach"],
+  },
+  {
+    name: "volume-2-icon",
+    icon: Volume2Icon,
+    keywords: ["volume", "sound", "audio", "speaker", "loud", "music"],
+  },
+  {
+    name: "volume-x-icon",
+    icon: VolumeXIcon,
+    keywords: ["volume", "mute", "silent", "sound off", "audio off", "quiet"],
+  },
+  {
+    name: "radio-icon",
+    icon: RadioIcon,
+    keywords: [
+      "radio",
+      "signal",
+      "broadcast",
+      "waves",
+      "transmission",
+      "wireless",
+    ],
+  },
+  {
+    name: "router-icon",
+    icon: RouterIcon,
+    keywords: ["router", "wifi", "network", "internet", "connection", "modem"],
+  },
+  {
+    name: "satellite-dish-icon",
+    icon: SatelliteDishIcon,
+    keywords: [
+      "satellite",
+      "dish",
+      "antenna",
+      "signal",
+      "broadcast",
+      "communication",
+    ],
+  },
+  {
+    name: "scan-barcode-icon",
+    icon: ScanBarcodeIcon,
+    keywords: ["scan", "barcode", "qr", "code", "reader", "scanner"],
+  },
+  {
+    name: "send-horizontal-icon",
+    icon: SendHorizontalIcon,
+    keywords: [
+      "send",
+      "horizontal",
+      "message",
+      "mail",
+      "paper plane",
+      "submit",
+    ],
+  },
+  {
+    name: "soup-icon",
+    icon: SoupIcon,
+    keywords: ["soup", "bowl", "food", "hot", "steam", "meal"],
+  },
+  {
+    name: "subscript-icon",
+    icon: SubscriptIcon,
+    keywords: ["subscript", "text", "format", "typography", "math", "chemical"],
+  },
+  {
+    name: "target-icon",
+    icon: TargetIcon,
+    keywords: ["target", "aim", "goal", "focus", "bullseye", "center"],
   },
 ].sort((a, b) => a.name.localeCompare(b.name));
 

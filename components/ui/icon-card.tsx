@@ -10,6 +10,7 @@ import SimpleCheckedIcon from "@/icons/simple-checked-icon";
 import CopyIcon from "@/icons/copy-icon";
 import TerminalIcon from "@/icons/terminal-icon";
 import Link from "next/link";
+import { LINKS } from "@/constants";
 
 const IconCard = ({
   name,
@@ -19,6 +20,7 @@ const IconCard = ({
   icon: React.FC<AnimatedIconProps>;
 }) => {
   const [isCopied, setIsCopied] = React.useState(false);
+  const [isCommandCopied, setIsCommandCopied] = React.useState(false);
   const copyFileToClipboard = async () => {
     const content = await getIconsContent(name);
     console.log(content);
@@ -26,6 +28,16 @@ const IconCard = ({
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
+    }, 1000);
+  };
+
+  const copyCommandToClipboard = () => {
+    window.navigator.clipboard.writeText(
+      `npx shadcn@latest add ${LINKS.SITE_URL}/r/${name}.json`,
+    );
+    setIsCommandCopied(true);
+    setTimeout(() => {
+      setIsCommandCopied(false);
     }, 1000);
   };
 
@@ -67,8 +79,15 @@ const IconCard = ({
 
         <Tooltip>
           <TooltipTrigger asChild>
-            <button className="text-muted-foreground hover:text-foreground transition-colors">
-              <TerminalIcon size={16} />
+            <button
+              onClick={() => copyCommandToClipboard()}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {isCommandCopied ? (
+                <SimpleCheckedIcon size={16} className="text-green-500" />
+              ) : (
+                <TerminalIcon size={16} />
+              )}
             </button>
           </TooltipTrigger>
           <TooltipContent
