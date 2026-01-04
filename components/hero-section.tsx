@@ -216,7 +216,7 @@ const HeroBackground = () => {
         <FloatingIcon className="right-120 bottom-40 rotate-[-10deg]">
           <GhostIcon
             ref={ghostRef}
-            className="h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-40 xl:w-24"
+            className="h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-24 xl:w-24"
           />
         </FloatingIcon>
       </div>
