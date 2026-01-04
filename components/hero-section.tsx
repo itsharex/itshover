@@ -111,8 +111,16 @@ const HeroBackground = () => {
   const ghostRef = useRef<AnimatedIconHandle>(null);
 
   const lastInteractionRef = useRef<number>(0);
+  const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const clearAllAnimationTimeouts = useCallback(() => {
+    timeoutsRef.current.forEach((id) => clearTimeout(id));
+    timeoutsRef.current = [];
+  }, []);
 
   const triggerAllAnimations = useCallback(() => {
+    clearAllAnimationTimeouts();
+
     const iconRefs = [
       githubRef,
       likeRef,
@@ -126,11 +134,13 @@ const HeroBackground = () => {
     iconRefs.forEach((ref) => {
       ref.current?.startAnimation();
 
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         ref.current?.stopAnimation();
       }, ANIMATION_DURATION_MS);
+
+      timeoutsRef.current.push(timeoutId);
     });
-  }, []);
+  }, [clearAllAnimationTimeouts]);
 
   const handleIconInteraction = () => {
     lastInteractionRef.current = Date.now();
@@ -154,8 +164,9 @@ const HeroBackground = () => {
     return () => {
       clearTimeout(initialTimeout);
       clearInterval(idleInterval);
+      clearAllAnimationTimeouts();
     };
-  }, [triggerAllAnimations]);
+  }, [triggerAllAnimations, clearAllAnimationTimeouts]);
   return (
     <div>
       <div
