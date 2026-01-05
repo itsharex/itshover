@@ -14,13 +14,28 @@ export async function createIssue(formData: FormData) {
         return { error: "Server configuration error" };
     }
 
-    const title = `Request: [${category}] Icon`;
-    const body = `
-**Category:** ${category}
-**Reference Links:**
-${links || "None provided"}
+    const sanitizeInput = (text: string, multiline = false) => {
+        if (!text) return "";
+        // Escape markdown sensitive characters: [, ], `, <, >
+        let safe = text.replace(/[\[\]`<>]/g, "\\$&");
+        // Strip newlines for single-line fields to prevent header injection
+        if (!multiline) {
+            safe = safe.replace(/[\r\n]+/g, " ");
+        }
+        return safe;
+    };
 
-**Requested by:** ${handle || "Anonymous"}
+    const cleanCategory = sanitizeInput(category);
+    const cleanLinks = sanitizeInput(links, true);
+    const cleanHandle = sanitizeInput(handle);
+
+    const title = `Request: [${cleanCategory}] Icon`;
+    const body = `
+**Category:** ${cleanCategory}
+**Reference Links:**
+${cleanLinks || "None provided"}
+
+**Requested by:** ${cleanHandle || "Anonymous"}
   `.trim();
 
     try {
@@ -40,7 +55,7 @@ ${links || "None provided"}
 
         const issue = await response.json();
         return { success: true, url: issue.html_url };
-    } catch (err) {
+    } catch {
         return { error: "Internal server error" };
     }
 }

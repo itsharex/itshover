@@ -5,12 +5,13 @@ import IconCard from "./ui/icon-card";
 import Fuse from "fuse.js";
 import SearchInput, { SearchInputRef } from "./ui/search-input";
 import { motion, AnimatePresence } from "motion/react";
-import Link from "next/link";
 import { isMac } from "@/lib/utils";
+import RequestIconModal from "./request-icon-modal";
 
 const IconList = () => {
   const searchInputRef = useRef<SearchInputRef>(null);
   const iconCount = useMemo(() => ICON_LIST.length, []);
+  const [isRequestModalOpen, setIsRequestModalOpen] = React.useState(false);
 
   const fuse = useMemo(
     () =>
@@ -130,14 +131,21 @@ const IconList = () => {
             >
               <p className="text-muted-foreground text-sm">
                 No icons found, Try other keyword or{" "}
-                <Link href="/request" className="text-primary hover:underline">
+                <button
+                  onClick={() => setIsRequestModalOpen(true)}
+                  className="text-primary hover:underline"
+                >
                   Request for new icons
-                </Link>
+                </button>
               </p>
             </motion.div>
           )}
         </motion.div>
       </AnimatePresence>
+      <RequestIconModal
+        isOpen={isRequestModalOpen}
+        onClose={() => setIsRequestModalOpen(false)}
+      />
     </motion.div>
   );
 };
