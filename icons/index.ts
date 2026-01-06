@@ -184,6 +184,9 @@ import Volume2Icon from "./volume-2-icon";
 import VolumeXIcon from "./volume-x-icon";
 import XIcon from "./x-icon";
 import YoutubeIcon from "./youtube-icon";
+import PassportIcon from "./passport-icon";
+import AirplaneIcon from "./airplane-icon";
+import TravelBag from "./travel-bag";
 
 export interface IconType {
   name: string;
@@ -203,6 +206,11 @@ const ICON_LIST: IconType[] = [
     name: "accessibility-icon",
     icon: AccessibilityIcon,
     keywords: ["accessibility", "a11y", "wheelchair", "disabled", "inclusive"],
+  },
+  {
+    name: "airplane-icon",
+    icon: AirplaneIcon,
+    keywords: ["airplane", "plane", "airport", "travel", "transportation"],
   },
   {
     name: "alarm-clock-plus-icon",
@@ -954,6 +962,11 @@ const ICON_LIST: IconType[] = [
     ],
   },
   {
+    name: "travel-bag",
+    icon: TravelBag,
+    keywords: ["travel", "bag", "luggage", "suitcase", "traveling"],
+  },
+  {
     name: "unordered-list-icon",
     icon: UnorderedListIcon,
     keywords: ["list", "unordered", "bullet", "items", "menu"],
@@ -1202,6 +1215,11 @@ const ICON_LIST: IconType[] = [
     name: "party-popper-icon",
     icon: PartyPopperIcon,
     keywords: ["party", "popper", "celebration", "confetti", "celebrate"],
+  },
+  {
+    name: "passport-icon",
+    icon: PassportIcon,
+    keywords: ["passport", "passport", "travel", "transportation"],
   },
   {
     name: "moon-icon",
