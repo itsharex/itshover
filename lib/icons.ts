@@ -4,6 +4,10 @@ export const ICONS = [
     path: "/icons/accessibility-icon",
   },
   {
+    name: "airplane icon",
+    path: "/icons/airplane-icon",
+  },
+  {
     name: "alarm clock plus icon",
     path: "/icons/alarm-clock-plus-icon",
   },
@@ -356,6 +360,10 @@ export const ICONS = [
     path: "/icons/home-icon",
   },
   {
+    name: "hotel icon",
+    path: "/icons/hostel-icon",
+  },
+  {
     name: "instagram icon",
     path: "/icons/instagram-icon",
   },
@@ -414,6 +422,10 @@ export const ICONS = [
   {
     name: "party popper icon",
     path: "/icons/party-popper-icon",
+  },
+  {
+    name: "passport icon",
+    path: "/icons/passport-icon",
   },
   {
     name: "pen icon",
@@ -554,6 +566,10 @@ export const ICONS = [
   {
     name: "trash icon",
     path: "/icons/trash-icon",
+  },
+  {
+    name: "travel bag",
+    path: "/icons/travel-bag",
   },
   {
     name: "tree icon",
