@@ -13,6 +13,7 @@ import { StickyBanner } from "@/components/ui/sticky-banner";
 import { GithubStarsProvider } from "@/components/github-stars-context";
 import ExternalLinkIcon from "@/icons/external-link-icon";
 import Link from "next/link";
+import UmamiAnalytics from "@/components/UmamiAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -92,6 +93,7 @@ export default function RootLayout({
           </GithubStarsProvider>
         </ThemeProvider>
         <Analytics />
+        <UmamiAnalytics />
       </body>
     </html>
   );
