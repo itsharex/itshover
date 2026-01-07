@@ -1225,7 +1225,7 @@ const ICON_LIST: IconType[] = [
   {
     name: "passport-icon",
     icon: PassportIcon,
-    keywords: ["passport", "passport", "travel", "transportation"],
+    keywords: ["international", "passport", "travel", "visa", "traveling"],
   },
   {
     name: "moon-icon",

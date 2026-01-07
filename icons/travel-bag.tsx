@@ -33,10 +33,14 @@ const TravelBag = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
       animate(".back-flap", { x: 0 }, { duration: 0.3, ease: "easeOut" });
     }, [animate]);
 
-    useImperativeHandle(ref, () => ({
-      startAnimation: start,
-      stopAnimation: stop,
-    }));
+    useImperativeHandle(
+      ref,
+      () => ({
+        startAnimation: start,
+        stopAnimation: stop,
+      }),
+      [start, stop],
+    );
 
     return (
       <motion.svg

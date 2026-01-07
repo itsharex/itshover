@@ -25,10 +25,14 @@ const HotelIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
       );
     }, [animate]);
 
-    useImperativeHandle(ref, () => ({
-      startAnimation: start,
-      stopAnimation: stop,
-    }));
+    useImperativeHandle(
+      ref,
+      () => ({
+        startAnimation: start,
+        stopAnimation: stop,
+      }),
+      [start, stop],
+    );
 
     return (
       <motion.svg
@@ -65,5 +69,3 @@ const HotelIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
 
 HotelIcon.displayName = "HotelIcon";
 export default HotelIcon;
-
-// stroke="#ff34f8"
